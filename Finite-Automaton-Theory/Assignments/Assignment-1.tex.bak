@@ -1,0 +1,151 @@
+\documentclass[a4paper]{ctexart}
+\pagestyle{plain}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+%\usepackage{tikz}
+%\usetikzlibrary{patterns}
+\title{\textbf{Assignment 1 for Finite Automata Theory}}
+\date{2020.10.1}
+\author{Guo Yuhang \\ 202021080728
+}
+\begin{document}
+\maketitle
+\section*{Exercise 1}
+\noindent 2.1 设$L=\{0^n1^m|n,m\geq 1\}$，试构造满足要求的文法G.
+\begin{enumerate}[(1)]
+\item G是RG.
+\item G是CFG但不是RG.
+\item G是CSG但不是CFG.
+\item G是短语结构文法但不是CSG.
+\end{enumerate}
+\emph{Solution:}
+\begin{enumerate}[(1)]
+\item 构造RG文法：
+\[
+\begin{split}
+&S\to 0A\\
+&A\to 1|0A|0B\\
+&B\to 1|1B
+\end{split}
+\]
+\item 构造CFG文法但非RG文法：
+\[
+\begin{split}
+&S\to AB\\
+&A\to 0|0A\\
+&B\to 1|1B
+\end{split}
+\]
+\item 构造CSG文法但非CFG文法：
+\[
+\begin{split}
+&S\to 0A\\
+&0A\to 01|00A\\
+&A\to 1|1A
+\end{split}
+\]
+\item 构造短语结构文法但不是CSG:
+\[
+\begin{split}
+S\to \epsilon|0S|1S\\
+\end{split}
+\]
+\end{enumerate}
+
+\noindent 2.2 设$\Sigma=\{0,1\}$, 请给出$\Sigma$上的下列语言的文法。
+\begin{enumerate}[(1)]
+\item 所有以0开头的串。
+\item 所有以0开头1结尾的串。
+\item 所有以11开头以11结尾的串。
+\item 所有0和1一样多的串。
+\item 所有0比1多的串。
+\item 所有长度为偶数的串。
+\item 所有包含子串01011的串。
+\item 所有包含3个连续0的串。
+\end{enumerate}
+\emph{Solution:}
+\begin{enumerate}[(1)]
+\item 所有以0开头的串。
+\[
+\begin{split}
+&S\to 0A|0\\
+&A\to 0A|1A|0|1\\
+\end{split}
+\]
+\item 所有以0开头1结尾的串。
+\[
+\begin{split}
+&S\to 0A\\
+&A\to 0A|1A|1\\
+\end{split}
+\]
+\item 所有以11开头11结尾的串。
+\[
+\begin{split}
+&S\to 11|111|11A\\
+&A\to 0A|1A|11\\
+\end{split}
+\]
+\item 所有0和1一样多的串。
+\[
+\begin{split}
+S\to S0S1S|S1S0S|\epsilon\\
+\end{split}
+\]
+\item 所有0比1多的串。
+\[
+\begin{split}
+S\to 0S1|01S|1S0|10S|SS|0\\
+\end{split}
+\]
+\item 所有长度为偶数的串。
+\[
+\begin{split}
+S\to 00S|01S|10S|11S|\epsilon\\
+\end{split}
+\]
+\item 所有包含子串01011的串。
+\[
+\begin{split}
+&S\to 01011|A01011B\\
+&A\to 0A|1A|\epsilon\\
+&B\to 0B|1B|\epsilon
+\end{split}
+\]
+\item 所有包含3个连续的0的串。
+\[
+\begin{split}
+&S\to 000|A000B\\
+&A\to 0A|1A|\epsilon\\
+&B\to 0B|1B|\epsilon
+\end{split}
+\]
+\end{enumerate}
+\noindent 2.3 设$\Sigma=\{a,b,c\}$，构造下列语言的文法。
+\begin{enumerate}[(1)]
+\item $\{a^nb^n |n\geq 0\}$
+\item $\{a^nb^m|n,m\geq 1\}$
+\item $\{a^nb^na^n|n\geq 1\}$
+\item $\{a^nb^ma^k | n,m,k\geq 1\}$
+\item $\{a\omega a |a\in \Sigma,\omega \in \Sigma^+\}$
+\item $\{x\omega x^T|x,\omega\in \Sigma^+\}$
+\item $\{x|x=x^T,x\in \Sigma^+\}$
+\item $\{xx^T\omega |x,\omega \in\Sigma^+\}$
+\end{enumerate}
+\emph{Solution:}
+\begin{enumerate}[(1)]
+\item $\{a^nb^n |n\geq 0\}$
+\[
+S\to aSb|\epsilon
+\]   
+\item $\{a^nb^m|n,m\geq 1\}$
+\[
+\begin{split}
+&S\to AB\\
+&A\to aA
+\end{split}
+\]
+\end{enumerate}
+\end{document}
