@@ -1,5 +1,7 @@
 \documentclass[a4paper]{ctexart}
 \pagestyle{plain}
+\usepackage{geometry}
+\geometry{a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -7,8 +9,8 @@
 %\usepackage{tikz}
 %\usetikzlibrary{patterns}
 \title{\textbf{Assignment 1 for Finite Automata Theory}}
-\date{2020.10.1}
-\author{Guo Yuhang \\ 202021080728
+\date{}
+\author{郭宇航 \\ 202021080728
 }
 \begin{document}
 \maketitle
@@ -49,7 +51,10 @@
 \item 构造短语结构文法但不是CSG:
 \[
 \begin{split}
-S\to \epsilon|0S|1S\\
+&S\to ABC\\
+&A\to 0|0A\\
+&B\to 0|B\\
+&C\to \epsilon
 \end{split}
 \]
 \end{enumerate}
@@ -151,8 +156,9 @@ S\to aSb|\epsilon
 \item $\{a^nb^na^n|n\geq 1\}$
 \[
 \begin{split}
-&S\to aSa|aAa\\
-&A\to b|bA
+&S\to aba|aSBa\\
+&aB\to Ba\\
+&bB\to bb
 \end{split}
 \]
 \item $\{a^nb^ma^k | n,m,k\geq 1\}$
