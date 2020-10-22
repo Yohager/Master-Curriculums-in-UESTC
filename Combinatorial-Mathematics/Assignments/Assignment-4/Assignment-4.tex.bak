@@ -1,0 +1,35 @@
+\documentclass[a4paper]{ctexart}
+\pagestyle{plain}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{tikz}
+%\usetikzlibrary{patterns}
+\title{\textbf{Assigment 4 for Combinational Mathmatics}}
+\date{2020.10.22}
+\author{Guo Yuhang \\ 202021080728
+}
+
+\begin{document}
+\maketitle
+\section*{Exercise 4}
+%5,6,9,14
+5. 有无穷多字母A,B,C. 求从中选出$n$个字母但必须包含偶数个A的方式数。\\
+\textbf{Solution}: 
+
+6. 求重集$B=\{\infty \cdot a,3\cdot b,5\cdot c,7\cdot d\}$的10组合数。\\
+\textbf{Solution}: 
+
+9. 设重集$B=\{\infty \cdot b_1,\infty \cdot b_2,\infty \cdot b_3,\infty \cdot b_4,\infty \cdot b_5,\infty \cdot b_6\}$，并设$a_r$是B满足以下条件的$r$-组合数，求序列$\{a_0,a_1,\cdots,a_r,\cdots\}$的普通母函数。
+\begin{itemize}
+\item 每个$b_i$出现3的倍数次$(i=1,2,3,4,5,6)$.
+\item $b_1,b_2$至多出现一次，$b_3,b_4$至少出现两次，$b_5,b_6$最多出现4次。
+\item $b_1$出现偶数次，$b_6$出现奇数次，$b_3$出现3的倍数次，$b_4$出现5的倍数次。
+\item 每个$b_i(i=1,2,3,4,5,6)$至多出现8次。
+\end{itemize}
+\textbf{Solution}:
+
+14. 求由数字$1,2,3,4,5,6$组成的$r$位数中，$3$和$4$都出现偶数次，$2$和$4$至少出现一次的$r$位数的个数。\\
+\textbf{Solution}: 
+\end{document}
