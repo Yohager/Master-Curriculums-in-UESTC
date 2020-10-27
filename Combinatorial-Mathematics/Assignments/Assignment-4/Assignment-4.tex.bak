@@ -12,15 +12,40 @@
 }
 
 \begin{document}
-\maketitle
+\maketitle 
 \section*{Exercise 4}
 %5,6,9,14
 5. 有无穷多字母A,B,C. 求从中选出$n$个字母但必须包含偶数个A的方式数。\\
 \textbf{Solution}: 
+假设从无穷个A,B,C中选出$n$个字母包含偶数个A的方式数为$a_n$，则序列$\{a_n\}$的普通母函数为：
+\[
+\begin{split}
+f(x)&=(1+x^2+x^4+\cdots)(1+x+x^2+\cdots)\\
+&=\frac{1}{(1-x^2)}\cdot \frac{1}{(1-x)^2}=\frac{1}{(1-x)^3}\cdot \frac{1}{(1+x)}\\
+&=
+\end{split}
+\]
+而根据：
+\[
+(1-rx)^{-n}=\sum_{k=0}^\infty\binom{n+k-1}{k} r^k x^k\quad (|rx|<1)
+\]
+因此$x^n$的系数为：
 
 6. 求重集$B=\{\infty \cdot a,3\cdot b,5\cdot c,7\cdot d\}$的10组合数。\\
-\textbf{Solution}: 
-
+\textbf{Solution}:
+假设重集$B$的$n-$组合数为$a_n$，则序列$\{a_n\}$的普通母函数为：
+\[
+\begin{split}
+f(x)&=(1+x+x^2+\cdots)(1+x+x^2+x^3)(1+x+x^2+x^3+x^4+x^5)(1+x+\cdots+x^7)\\
+&=\frac{1}{1-x}\cdot\frac{1-x^4}{1-x}\cdot \frac{1-x^6}{1-x}\cdot \frac{1-x^8}{1-x}\\
+&=(1-x^4-x^6-x^8+x^{10}+x^{12}+x^{14}-x^{18})\sum_{i=0}^\infty \binom{i+3}{3}x^i\\
+\end{split}
+\]
+因此可以得到：
+\[
+a_{10}=\binom{10+3}{3}-\binom{6+3}{3}-\binom{4+3}{3}-\binom{2+3}{3}+\binom{0+3}{3}=158
+\]
+因此重集$B$的10-组合数为$158$.
 9. 设重集$B=\{\infty \cdot b_1,\infty \cdot b_2,\infty \cdot b_3,\infty \cdot b_4,\infty \cdot b_5,\infty \cdot b_6\}$，并设$a_r$是B满足以下条件的$r$-组合数，求序列$\{a_0,a_1,\cdots,a_r,\cdots\}$的普通母函数。
 \begin{itemize}
 \item 每个$b_i$出现3的倍数次$(i=1,2,3,4,5,6)$.
@@ -28,8 +53,49 @@
 \item $b_1$出现偶数次，$b_6$出现奇数次，$b_3$出现3的倍数次，$b_4$出现5的倍数次。
 \item 每个$b_i(i=1,2,3,4,5,6)$至多出现8次。
 \end{itemize}
-\textbf{Solution}:
 
+\textbf{Solution}:
+\begin{itemize}
+\item 根据题意写出序列$(a_0,a_1,\cdots,a_r,\cdots)$的普通母函数为：
+\[
+f(x)=(1+x^3+x^6+x^9+\cdots)^6=\frac{1}{(1-x^3)^6}
+\]
+\item 根据题意写出序列$(a_0,a_1,\cdots,a_r,\cdots)$的普通母函数为：
+\[
+\begin{split}
+f(x)&=(1+x)^2(x^2+x^3+\cdots)^2(1+x+x^2+x^3+x^4)^2\\
+&=(1+x)^2\cdot\frac{x^4}{(1-x)^2}\cdot\frac{(1-x^5)^2}{(1-x)^2}\\
+&=\frac{x^4(1+x)^2(1-x^5)^2}{(1-x)^4}
+\end{split}
+\]
+\item 根据题意写出序列$(a_0,a_1,\cdots,a_r,\cdots)$的普通母函数为：
+\[
+\begin{split}
+f(x)&=(1+x^2+x^4+\cdots)(x+x^3+x^5+\cdots)(1+x^3+x^6+\cdots)(1+x^5+x^{10}+\cdots)\\
+&\times (1+x+x^2+x^3+\cdots)^2\\
+&= \frac{1}{(1-x^2)}\cdot \frac{x}{(1-x^2)}\cdot \frac{1}{(1-x^3)}\cdot \frac{1}{(1-x^5)}\cdot \frac{1}{(1-x)^2}\\
+&=\frac{x}{(1+x)^2(1-x^3)(1-x^5)(1-x)^4}
+\end{split}
+\]
+\item 根据题意写出序列$(a_0,a_1,\cdots,a_r,\cdots)$的普通母函数为：
+\[
+f(x)=(1+x+x^2+x^3+\cdots+x^8)^6
+\]
+\end{itemize}
 14. 求由数字$1,2,3,4,5,6$组成的$r$位数中，$3$和$4$都出现偶数次，$2$和$4$至少出现一次的$r$位数的个数。\\
-\textbf{Solution}: 
+\textbf{Solution}:
+假设序列$(a_0,a_1,\cdots,a_r,\cdots)$的指数母函数为：
+\[
+\begin{split}
+f_e(x)&=\left( 1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots \right)\left( \frac{x^2}{2!}+\frac{x^4}{4!}+\cdots \right)\left( x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots \right)\left(1+x+ \frac{x^2}{2!}+\frac{x^3}{3}+\cdots \right)^3\\
+&=\frac{e^{-x}+e^{x}}{2} \left( \frac{e^x+e^{-x}}{2}-1 \right)(e^x-1)(e^x)^3\\
+&=\frac{1}{4}\left( e^{2x}+e^{-2x}+2-2e^x-2e^{-x} \right)(e^{4x}-e^{3x})\\
+&=\frac{1}{4}\left( e^{6x}-3e^{5x} +4e^{4x}-4e^{3x}+3e^{2x}-e^x \right)\\
+&=\frac{1}{4}\sum_{r=0}^{\infty}\left( 6^r-3\times 5^r+4\times 4^r-4\times 3^r +3\times 2^r -1 \right)\frac{x^r}{r!}\\
+\end{split}
+\]
+因此：
+\[
+a_r=\frac{1}{4}\left( 6^r-3\times 5^r+4\times 4^r-4\times 3^r +3\times 2^r -1 \right)
+\]
 \end{document}
