@@ -1,0 +1,91 @@
+\documentclass{myhw}
+\usepackage{ctex}
+\linespread{1.05}        % Palatino needs more leading (space between lines)
+\usepackage{extarrows}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage[ruled]{algorithm2e}
+\usepackage{tikz-network}
+\titleformat{\section}[runin]{\sffamily\bfseries}{}{}{}[]
+\titleformat{\subsection}[runin]{\sffamily\bfseries}{}{}{}[]
+\renewcommand{\exname}{Exercise }
+\renewcommand{\subexcounter}{(\alph{homeworkSectionCounter})}
+\newcommand{\id}{\text{Id}}
+\newcommand{\tr}{\text{Tr}}
+\newcommand{\rib}{\text{Rib}}
+
+\title{Design and Analysis of Algorithms}
+
+\begin{document}
+\begin{center}
+\noindent{\Large \heiti 2020年算法设计与分析 \textbf{Assignment-2}}
+
+\vspace{0.5cm}
+
+Due: Nov 03, 2020
+
+\vspace{0.5cm}
+\noindent {\large 郭宇航  202021080728}
+\end{center}
+\begin{homeworkProblem}
+请简述证明一个问题是NP完全问题的主要步骤。
+\end{homeworkProblem}
+\begin{solution}
+证明分为两步：\\
+（1）首先证明这个问题是一个NP问题；\\
+（2）其次证明一个NP完全问题都可以归约到这个问题。\\
+这样就完成了一个问题是NP完全问题的证明。
+\end{solution}
+\begin{homeworkProblem}
+请证明：如果我们可以在多项式时间内给出判定一个图是否存在哈密顿圈，则我们可以在多项式时间内找到一个图的哈密顿圈。（如果存在的话）
+\end{homeworkProblem}
+
+\begin{solution}
+假设在多项式时间内判断一个图是否存在哈密顿圈的问题记为问题$X$，将多项式时间内找到一个图的哈密顿圈问题记为问题$Y$，那么下面的目标是在多项式时间内将问题$Y$归约到问题$X$：$Y\leq_p X$.
+\begin{itemize}
+\item 对于给定的图，首先调用问题$X$的解判断是否存在哈密顿圈，如果不存在则直接返回不存在方案，否则继续。
+\item 在给定的图中随机选择一条边，删除后调用问题$X$的解判断剩下的图是否存在一个哈密顿圈，如果不存在则这条边是原图的一个哈密顿圈的中一条边，将这个边添加入方案集合中，如果剩余图中仍然存在一个哈密顿圈则跳过这条边。
+\item 重复上述的操作直到遍历完整个给定的图的所有边，返回一个哈密顿图的方案。
+\end{itemize}
+
+\end{solution}
+\begin{homeworkProblem}
+最长路径问题：给定简单无向图中是否存在长度大于等于$k$的简单路径？请证明这个问题是NP完全问题。
+\end{homeworkProblem}
+
+\begin{solution}
+（1）首先考虑证明最长路径问题是一个NP问题：显然给出一个问题的实例一条简单路径，我们可以在多项式时间内验证这个实例路径的长度是否大于等于$k$. \\
+(2) 下面证明一个NP完全问题可以归约到最长路径问题，这里证明图的哈密尔顿圈问题可以归约到最长路径问题，即：HAMILTON-CYCYLE $\leq_p$ LONGEST-PATH. 归约流程为：（1）首先给出一个哈密顿图的实例$G$，我们对应的构建一个最长路径的实例$(G',K)$，其中$G=G', K=|V|-1$. 显然根据图$G$中存在哈密顿圈，我们一定可以在图$G'$中找到一个长度为$K$的平凡路径。
+\end{solution}
+
+\begin{homeworkProblem}
+图的匹配是一个边集，其中任意两条边都没有公共的顶点。请设计近似算法求解图的最大匹配问题，使得所得匹配集包含的顶点数超过最优解的$1/2$.
+\end{homeworkProblem}
+
+\begin{solution}
+简单的贪心算法如算法\ref{1}所示：根据上面的贪心算法我们不难发现我们可以自然得到一个点覆盖$|S|=2|M|$，假设$M^\ast$表示一个最大的图匹配解，显然我们可以知道前面得到的这个点覆盖结果$S\geq |M^\ast|$.（对于给定的一个图，假设$M$表示任意的一个图匹配解，$S$表示任意的一个点覆盖解，一定有$|S|\geq |M|$）从而我们可以得到：
+\[
+|M|=\frac{1}{2}|S|\geq \frac{1}{2}|M^\ast|
+\]
+从而我们找到了一个满足$1/2$近似的图匹配近似算法。
+
+\begin{algorithm}[H]
+\caption{GREEDY-GRAPH-MATCHING ALGORITHM}
+\label{1}
+\LinesNumbered
+\KwIn{graph $G=(V,E)$}
+\KwOut{graph-matching: $M$}
+\textbf{Initialize} $M\rightarrow \emptyset$, $E'\rightarrow E$\;
+\While {$E'\neq \emptyset$}{
+Let $(u,v)\in E'$ be an arbitrary edge\;
+$M\rightarrow M\cup \{(u,v)\}$.\;
+Delete from $E'$ all edges incident to either $u$ or $v$.
+}
+\
+\Return $M$ 
+\end{algorithm}
+
+\end{solution}
+\end{document}
