@@ -78,21 +78,22 @@
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-
+\usepackage{tikz}
+\usepackage{tikz-network}
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Diffusion auction in social networks]{Diffusion auction in social networks} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Diffusion Auction in Social Networks]{Diffusion Auction in Social Networks} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{Guo Yuhang} % Your name
+\author{Five Minutes Research Presentation} % Your name
 \institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 %University of California \\ % Your institution for the title page
 \medskip
-\textit{guoyuhang0921@gmail.com} % Your email address
+\textit{} % Your email address
 }
-\date{\today} % Date, can be changed to a custom date
+\date{} % Date, can be changed to a custom date
 
 \begin{document}
 
@@ -116,143 +117,214 @@
 %\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+\frametitle{Introduction: How can you sell a commodity?}
 
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
-\end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Bullet Points}
+\begin{block}{Traditional Approaches}
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item Contacting some on-line sales platform
+\item Using ads via some social media 
 \end{itemize}
+\end{block}
+\begin{alertblock}{Challenge}
+\begin{itemize}
+\item \alert{Unpredictable} returns, suffer from \alert{DEFICIT}!
+\item Attract more people while guarantee  profits.
+\end{itemize}
+\end{alertblock}
+\begin{figure}
+\centering
+\includegraphics[height=1cm]{downarrow.pdf}
+\end{figure}
+\begin{center}
+\Large{\textbf{Selling a commodity via social network!}}
+\end{center}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-\end{block}
+\frametitle{Diffusion Auction Settings}
+%插一个网络图
+\begin{columns}
+\begin{column}{.4\linewidth}
+\begin{tikzpicture}
+\Vertex[x=2,y=4.5,color=yellow,label=$S$]{S}
+\Vertex[x=1,y=3.2,label=$1$]{A}
+\Vertex[x=2,y=3,label=$3$]{B}
+\Vertex[x=3,y=3.2,label=$2$]{C}
+\Vertex[x=1.5,y=2,color=white,label=$5$]{D}
+\Vertex[x=2.5,y=2,color=white,label=$7$]{E}
+\Vertex[x=1,y=0.6,color=white,label=$6$]{F}
+\Vertex[x=2,y=1,color=white,label=$8$]{G}
+\Vertex[x=3,y=0.5,color=white,label=$9$]{H}
+\Vertex[x=4.5,y=3.2,color=white,label=$11$]{I}
+\Vertex[x=3.8,y=4.2,color=white,label=$4$]{J}
+\Vertex[x=3.5,y=2,color=white,label=$12$]{K}
+\Vertex[x=5,y=1,color=white,label=\alert{13}]{L}
+\Text[x=1,y=3.7,fontsize=\tiny]{A}
+\Text[x=2.2,y=3.4,fontsize=\tiny]{B}
+\Text[x=3,y=3.7,fontsize=\tiny]{C}
+\Text[x=1.05,y=2,fontsize=\tiny]{D}
+\Text[x=2.9,y=1.8,fontsize=\tiny]{E}
+\Text[x=1,y=0.15,fontsize=\tiny]{F}
+\Text[x=2.45,y=1,fontsize=\tiny]{G}
+\Text[x=3,y=0.95,fontsize=\tiny]{H}
+\Text[x=4.9,y=3.2,fontsize=\tiny]{I}
+\Text[x=3.4,y=4.1,fontsize=\tiny]{J}
+\Text[x=3.5,y=1.55,fontsize=\tiny]{K}
+\Text[x=4.6,y=0.9,fontsize=\tiny]{L}
+\Edge[](S)(A)
+\Edge[](S)(B)
+\Edge[](S)(C)
+\Edge[](A)(D)
+\Edge[](B)(E)
+\Edge[](D)(F)
+\Edge[](D)(E)
+\Edge[](C)(E)
+\Edge[](E)(G)
+\Edge[](G)(H)
+\Edge[](C)(J)
+\Edge[](C)(I)
+\Edge[](C)(K)
+\Edge[](K)(L)
+\Edge[](K)(I)
+\end{tikzpicture}
+\end{column}
 
-\begin{block}{Block 2}
-Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
-\end{block}
-
-\begin{block}{Block 3}
-Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
-\end{block}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Multiple Columns}
-\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-\column{.45\textwidth} % Left column and width
-\textbf{Heading}
-\begin{enumerate}
-\item Statement
-\item Explanation
-\item Example
-\end{enumerate}
-
-\column{.5\textwidth} % Right column and width
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
+\begin{column}{.6\linewidth}
+\begin{itemize}
+\item Seller $s$ sells a commodity.
+\item Having contact with neighbour nodes.
+\item (Without diffusion) Seller $s$ sells the item among A,B,C.
+\item Competition $\Rightarrow$ \textbf{Nobody diffuse!}
+\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[height=0.8cm]{downarrow.pdf}
+\end{figure}
+\begin{itemize}
+\item \textbf{Target 1}: Encouraging Diffusion!
+\item \textbf{Target 2}: Encouraging Truthful Bid!
+\end{itemize}
+\end{column}
 \end{columns}
 \end{frame}
 
 %------------------------------------------------
-\section{Second Section}
+
+\begin{frame}
+\frametitle{New Mechanism: Information Diffusion Mechanism}
+\begin{columns}
+\begin{column}{.4\linewidth}
+\begin{tikzpicture}
+\Vertex[x=2,y=4.5,color=yellow,label=$S$]{S}
+\Text[x=1,y=3.7,fontsize=\tiny]{A}
+\Vertex[x=1,y=3.2,label=$1$]{A}
+\Text[x=2.2,y=3.4,fontsize=\tiny]{B}
+\Vertex[x=2,y=3,label=$3$]{B}
+\Text[x=3,y=3.7,fontsize=\tiny]{C}
+\Vertex[x=3,y=3.2,label=$2$]{C}
+\Text[x=1.05,y=2,fontsize=\tiny]{D}
+\Vertex[x=1.5,y=2,color=white,label=$5$]{D}
+\Text[x=2.9,y=1.8,fontsize=\tiny]{E}
+\Vertex[x=2.5,y=2,color=white,label=$7$]{E}
+\Text[x=1,y=0.15,fontsize=\tiny]{F}
+\Vertex[x=1,y=0.6,color=white,label=$6$]{F}
+\Text[x=2.45,y=1,fontsize=\tiny]{G}
+\Vertex[x=2,y=1,color=white,label=$8$]{G}
+\Text[x=3,y=0.95,fontsize=\tiny]{H}
+\Vertex[x=3,y=0.5,color=white,label=$9$]{H}
+\Text[x=4.9,y=3.2,fontsize=\tiny]{I}
+\Vertex[x=4.5,y=3.2,color=white,label=$11$]{I}
+\Text[x=3.4,y=4.1,fontsize=\tiny]{J}
+\Vertex[x=3.8,y=4.2,color=white,label=$4$]{J}
+\Text[x=3.5,y=1.55,fontsize=\tiny]{K}
+\Vertex[x=3.5,y=2,color=white,label=\alert{\textbf{12}}]{K}
+\Text[x=4.6,y=0.9,fontsize=\tiny]{L}
+\Vertex[x=5,y=1,color=white,label=13]{L}
+\Edge[](S)(A)
+\Edge[](S)(B)
+\Edge[color=red,Direct=True](S)(C)
+\Edge[](A)(D)
+\Edge[](B)(E)
+\Edge[](D)(F)
+\Edge[](D)(E)
+\Edge[](C)(E)
+\Edge[](E)(G)
+\Edge[](G)(H)
+\Edge[](C)(J)
+\Edge[](C)(I)
+\Edge[color=red,Direct=True](C)(K)
+\Edge[color=red,Direct=True](K)(L)
+\Edge[](K)(I)
+\end{tikzpicture}
+Final winner is \alert{K}; \\Rewarded bidder: \textcolor{blue}{C}.
+\end{column}
+\begin{column}{.6\linewidth}
+%\begin{definition}[Critical Diffusion Node]
+%$i$ is $j$'s critical diffusion node if all the diffusion paths started from seller to $j$ have to pass $i$. 
+%\end{definition}
+\begin{itemize}
+\item Critical Diffusion Nodes \& Sequence.
+\item Allocation Rule:
+\[
+\pi_i^{idm}=
+\begin{cases}
+1&i\in C_m\backslash \{m\},v_i=v^\ast_{-d_{i+1}}\\
+1& i=m\\
+0&\text{otherwise}
+\end{cases}
+\]
+\item Payment Rule:
+\[
+p_i^{idm}=
+\begin{cases}
+v^\ast_{-d_i}-v^\ast_{d_{i+1}}&i\in C_w\backslash \{w\}\\
+v^\ast_{-d_i}& i=w\\
+0&\text{otherwise}
+\end{cases}
+\]
+\item Truthful bid and propagation!
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table}
-\begin{table}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
+\frametitle{Conclusion And Discussion}
+\begin{block}{Conclusions}
+\begin{enumerate}
+\item Generalizing classical auction into a social network.
+\item Encouraging bidders propagating sale information to neighbours.
+\item Getting higher profit for both seller and bidders.
+\end{enumerate}
+\end{block}
+\begin{block}{Future of Diffusion Auction}
+\begin{enumerate}
+
+\item Maximizing the seller's revenue.
+\item Considering different social networks' impacts.
+\item Extending to multiple items auction.
+\end{enumerate}
+\end{block}
+\begin{center}
+\Large{\textbf{Thanks for listening!}}
+\end{center}
 \end{frame}
+%------------------------------------------------
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}
+%------------------------------------------------
 
 %------------------------------------------------
 
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
-\end{example}
-\end{frame}
-
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{Figure}
-Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
-\end{frame}
-
 %------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
-
-This statement requires citation \cite{p1}.
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
-\end{thebibliography}
-}
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\Huge{\centerline{The End}}
-\end{frame}
 
 %----------------------------------------------------------------------------------------
 
