@@ -25,15 +25,15 @@ $$
 
 Consider the game:
 
-<img src="F:\UESTC\MasterⅠ(spring)\Curriculums\The-Frontier-of-Game-Theory\Pictures\l1-1.png" alt="example1" style="zoom:50%;" />
+<img src="..\Pictures\l1-1.png" alt="example1" style="zoom:50%;" />
 
 For player 2, right is strictly dominated by middle (if P1 plays up, playing middle or right, P2's reward changes from 1 to 0, P1 plays down, that changes from 1 to 0). After eliminating right, game is reduced:
 
-<img src="F:\UESTC\MasterⅠ(spring)\Curriculums\The-Frontier-of-Game-Theory\Pictures\l1-2.png" style="zoom: 50%;" />
+<img src="..\Pictures\l1-2.png" style="zoom: 50%;" />
 
 For player 1, down is strictly dominated by up:
 
-<img src="F:\UESTC\MasterⅠ(spring)\Curriculums\The-Frontier-of-Game-Theory\Pictures\l1-3.png" alt="example1" style="zoom:70%;" />
+<img src="..\Pictures\l1-3.png" alt="example1" style="zoom:70%;" />
 
 After this elimination, player 2 will always play middle rather than left.
 
@@ -48,7 +48,7 @@ After this elimination, player 2 will always play middle rather than left.
 
 1. From the definition, we can see that $s^\ast$ is a Nash Equilibrium and it will not be eliminated in IESDS since it is not strictly dominated by any other strategy.
 
-2. Proof by  contradiction, assuming the unique outcome $s^\ast$ resulting from IESDS is not a Nash Equilibrium, since the game is finite, for some player $i$, there exist one strategy $\hat{s}_i\in S_i$:
+2. Proof by  contradiction, assuming the unique outcome $s^\ast$ resulting from IESDS is not a Nash Equilibrium, since the game is finite, for some player $i$, there exist one strategy $\hat{s}_i\in S_i$: 
    $$
    u_i(\hat{s}_i,s^\ast_{-i})=\max_{s_i\in S_i} u_i(s_i,s^\ast_{-i})>u_i(s^\ast_i,s^\ast_{-i})
    $$
