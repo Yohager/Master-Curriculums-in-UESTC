@@ -38,9 +38,15 @@ My answer is: there will be no NE that player 1 chooses c1. Notice that there ar
 
 
 
-**[A new question]**: consider a game where 2 players and 3 rounds,  construct a situation where BIO stops at first step: p1 chooses s1 and there exist a NE where stops at 3 step and both p1 and p2 choose c1,c2,c3. Also consider a reverse version?
+**[A new question]**: consider a game where 2 players and 3 rounds, construct a situation where BIO stops at first step: p1 chooses s1 and there exist a NE where stops at 3 step and both p1 and p2 choose c1,c2,c3. Also consider a reverse version?
 
+**[Answer]**: The answer of the first question is negative, there exist no NE that contains c1,c2,c3 while the BIO is s1. We can give the a positive answer for the reverse version that there exists a NE contains s1 while the BIO is c1,c2,c3.
 
+<img src="..\Pictures\l2-7.png" style="zoom:50%;" />
+
+**[Another new question]**: consider a game where 2 players and four rounds, construct a situation where BIO stops at second step: p2 chooses s2 and there exist one NE that consist of c1,c2,c3,c4, what about the reverse one?
+
+**[Answer]**: 
 
 **[Example 2]** Stackelberg Duopoly 
 

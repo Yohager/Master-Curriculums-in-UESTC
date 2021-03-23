@@ -93,3 +93,33 @@ $$
 \max_{s_i\in S_i}E_t[u_i(s_i,s^\ast_{-i};t)]
 $$
 where $E_t[u_i(s_i,s^\ast_{-i};t)]=\sum_{t\in T}p(t)u_i(s_i(t_i),s^\ast_{-i}(t_{-i});t)$.
+
+#### BNE vs NE
+
+Consider a static Bayesian game:
+$$
+G=\{A_1,\cdots,A_n;T_1,\cdots,T_n;p_1,\cdots,p_n;u_1,\cdots,u_n\}
+$$
+Define the agent-normal-form game of $\bar{G}$ as follows:
+$$
+\bar{G}=(\bar{N},\{\bar{S}_j\},\{\bar{u}_j\})
+$$
+where $\bar{N}=\{t_i|i\in N\text{ and } t_i\in T_i\},\bar{S}_{t_i}=A_i$, and for $\bar{s}\in \times_{t_i\in \bar{N}}\bar{S}_{t_i}$, $\bar{u}_{t_i}(\bar{s})=E_{t_{-i}}[u_i(\bar{s}_{-i}(t_{-i}),\bar{s}_i(t_i);t_i)]$
+
+In this form, we extend the player space and all the types are redefined as agents in this game. That is called agent-norm-form game and we can maximize all agents' payoff via the new payoff matrix. 
+
+Another form definition of the Bayesian game:
+$$
+G=\{A_1,\cdots,A_n;T_1,\cdots,T_n;p_1,\cdots,p_n;u_1,\cdots,u_n\}
+$$
+Define the associated normal-form game of $G$ as follows:
+$$
+\tilde{G}=\{N,S_1,\cdots,S_n;\tilde{u}_1,\cdots,\tilde{u}_n\}
+$$
+where $N=\{1,\cdots,n\}$, $S_i=\{s_i:T_i\to A_i\}$
+$$
+\tilde{u}_i(s_1,\cdots,s_n)=\sum_{t=(t_1,\cdots,t_n)\in T}p(t)u_i(s_1(t_1),\cdots,s_n(t_n);t)
+$$
+In this form we transfer the Bayesian game into a static norm-form game and we calculate the strategies of all players via their actions and types. 
+
+#### E-mail Game
